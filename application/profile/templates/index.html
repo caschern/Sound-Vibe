@@ -1,0 +1,41 @@
+{% extends "layout.jinja2" %}
+{%block title%}Main{% endblock %}
+{% block content %}
+<div style = "margin: auto;
+	width: 60%;
+	border:none;
+	padding: 50px;">
+	<P>The objective of this project is to find keywords among different songs, so that we can find similarities and contrasts in 
+		artist's songs that are different in genre and vibe~.
+	</P>
+		<div style = "padding-top: 20px;padding-bottom: 20px;">
+			<form action="{{ url_for('main') }}" method="POST">
+				
+				<fieldset>
+					<div style = "font-weight: 500;">
+						<!--<legend>Input Text:</legend>-->
+						Type 3 words here:
+						<input name="user_input_text" type="text" required>
+						<input type="submit" value="Submit">
+					</div>
+				</fieldset> 
+			</form>
+		</div>
+
+	<div class="alert alert-success" style = "padding: 10px;">
+		{% if input_text %} 
+			<h4> User text:  {{ input_text }} </h4> 
+		{% endif %}
+		{% if result %}
+	  		<h4> Below are the artists and their genres </h4>
+		{% endif %}
+		{% if result %}
+	  		<p> Artist: {{ porky }} </p>
+		{% endif %}
+		{% if result %}
+	  		<p> Genre: {{ kilt }} </p>
+		{% endif %}
+
+	</div>
+</div>
+{% endblock %}
